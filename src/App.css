@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.formStyle{
+  margin-top: 1cm;
+}
+
+.containerContact{
+  padding: 5%;
+  background: white;
+  margin-top: 2cm;
+  border-radius: 1%;
+}
+
+body{
+  background: #282c34;
+}
