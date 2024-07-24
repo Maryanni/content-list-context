@@ -1,12 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import Contact from './components/Contact';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./views/Home";
 
 function App() {
-  return (
-   
-      <Contact />
-  );
+  return <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />}></Route>
+    </Routes>
+  </BrowserRouter>;
 }
 
 export default App;
