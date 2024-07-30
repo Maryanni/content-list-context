@@ -2,7 +2,7 @@ import logo from "../logo.svg";
 import "../App.css";
 import Contact from "./Contact";
 import ListContact from "../components/ListContact";
-import Message from "../components/Message"
+import Message from "../components/Message";
 import { useContext, useEffect } from "react";
 import { Context } from "../store/context";
 import { Link } from "react-router-dom";
@@ -24,20 +24,23 @@ function Home() {
           Add new contact
         </Link>
 
-        {state.store.contacts.length > 0
-          ? state.store.contacts.map((item, index) => {
-              return (
-                <div key={index}>
-                  <ListContact
-                    name={item.name}
-                    phone={item.phone}
-                    email={item.email}
-                    address={item.address}
-                  />
-                </div>
-              );
-            })
-          : <Message />}
+        {state.store.contacts.length > 0 ? (
+          state.store.contacts.map((item, index) => {
+            return (
+              <div key={index}>
+                <ListContact
+                  name={item.name}
+                  phone={item.phone}
+                  email={item.email}
+                  address={item.address}
+                  id={item.id}
+                />
+              </div>
+            );
+          })
+        ) : (
+          <Message />
+        )}
       </div>
     </div>
   );

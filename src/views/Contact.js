@@ -10,6 +10,7 @@ function Contact() {
     <div className="container">
       <div className="containerContact">
         <h1 className="text-center">Add a new contact</h1>
+        
         <form className="formStyle">
           <div className="mb-3">
             <label htmlFor="formGroupExampleInput" className="form-label">

@@ -51,8 +51,25 @@ const getState = ({ getActions, getStore, setStore }) => {
         )
           .then((response) => response.json())
           .catch((error) => console.log(error));
-        setStore({ name: "", phone: "", email: "", address: "" });
+          setStore({ name: "", phone: "", email: "", address: "" });
       },
+      deleteContact : (contactList) =>{
+        fetch(`https://playground.4geeks.com/contact/agendas/maryanni/contacts/${contactList}`, 
+            {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+        })
+       .then((response) => {
+            if (response.ok) {
+              getActions().getContact(); // Llama a getContact para actualizar la lista de contactos
+            } 
+          })
+          .catch((error) => console.log(error));
+   
+          
+      }
     },
   };
 };
