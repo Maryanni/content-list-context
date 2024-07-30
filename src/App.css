@@ -41,11 +41,18 @@
   margin-top: 1cm;
 }
 
+.containerList{
+  justify-content: center;
+  display: flex;
+}
+
 .containerContact{
   padding: 5%;
   background: white;
   margin-top: 2cm;
   border-radius: 1%;
+  width: 900px;
+  width: 80%;
 }
 
 body{
@@ -56,4 +63,16 @@ body{
   border-radius: 50%;
   width: 100px;
   height: 100px;
+
+}
+
+.btnAddContact{
+  width: 200px;
+  margin-bottom: 0.5cm;
+  align-self: end;
+}
+
+.backHome {
+  text-decoration: underline;
+  color: blue;
 }
