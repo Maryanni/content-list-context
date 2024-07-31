@@ -13,6 +13,7 @@ function Home() {
   useEffect(() => {
     state.actions.getContact();
   }, []);
+  
   return (
     <div className="container containerList">
       <div className="containerContact">

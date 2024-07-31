@@ -28,6 +28,20 @@ const getState = ({ getActions, getStore, setStore }) => {
           })
           .catch((error) => console.log(error));
       },
+      getContactById: (id) => {
+            const {contacts} = getStore();
+            setStore({ name: "", phone: "", email: "", address: "" });
+            contacts.forEach((item) => {
+                if(item.id == id){
+                    setStore({
+                        name: item.name,
+                        phone: item.phone,
+                        email: item.email,
+                        address: item.address,
+                      });
+                }
+            })
+      },
       handlerOnChange: (e) => {
         setStore({ [e.target.name]: e.target.value });
       },
@@ -69,6 +83,19 @@ const getState = ({ getActions, getStore, setStore }) => {
           .catch((error) => console.log(error));
    
           
+      },
+      putContact: (contactId) => {
+        const { name, phone, email, address } = getStore();
+        const contact = { name, phone, email, address };
+        fetch(`https://playground.4geeks.com/contact/agendas/maryanni/contacts/${contactId}`,{
+            method: "PUT",
+            body: JSON.stringify(contact),
+            headers: {
+              "Content-Type": "application/json",
+            },
+        })
+        .then((response) => response.json())
+        .catch((error) => console.log(error));
       }
     },
   };

@@ -1,15 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../store/context";
 
 function Contact() {
   const state = useContext(Context);
- 
+  const {id} = useParams();
+
+  useEffect(() => {
+    state.actions.getContactById(id);
+  }, [id]);
 
   return (
     <div className="container">
       <div className="containerContact">
-        <h1 className="text-center">Add a new contact</h1>
+        <h1 className="text-center">{id ? "Edit contact" : "Add a new contact"}</h1>
         
         <form className="formStyle">
           <div className="mb-3">
@@ -69,7 +73,7 @@ function Contact() {
             />
           </div>
           <div className="d-grid gap-2">
-            <button className="btn btn-primary" type="button" onClick={state.actions.postContact}>
+            <button className="btn btn-primary" type="button" onClick={id ? () => state.actions.putContact(id) : state.actions.postContact}>
               Save
             </button>
           </div>

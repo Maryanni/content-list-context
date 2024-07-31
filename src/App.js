@@ -8,6 +8,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="/account" element={<Contact />}></Route>
+      <Route path="/account/:id" element={<Contact />}></Route>
+
     </Routes>
   </BrowserRouter>;
 }

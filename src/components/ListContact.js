@@ -58,63 +58,61 @@ function ListContact(props) {
           </div>
 
           <div className="d-wrap justify-content-end">
-            <i className="fa-solid fa-pencil me-5"></i>
+            <Link to={`/account/${props.id}`} className="me-5">
+              <i className="fa-solid fa-pencil"></i>
+            </Link>
             <i
               className="fa-solid fa-trash-can me-3"
               data-bs-toggle="modal"
-             // data-bs-target="#exampleModal"
+              // data-bs-target="#exampleModal"
               data-bs-target={`#${modalId}`}
             ></i>
           </div>
         </div>
       </button>
       <div
-                  className="modal fade"
-                  // id="exampleModal"
-                  id={modalId}
-                  tabIndex="-1"
-                  aria-labelledby="exampleModalLabel"
-                  aria-hidden="true"
-                >
-                  <div className="modal-dialog">
-                    <div className="modal-content">
-                      <div className="modal-header">
-                        <h5 className="modal-title">Are you sure?</h5>
-                        <button
-                          type="button"
-                          className="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div className="modal-body">
-                        <p>
-                          If you delete this thing the entire universe will go
-                          down
-                        </p>
-                      </div>
-                      <div className="modal-footer">
-                        <button
-                          type="button"
-                          className="btn btn-secondary"
-                          data-bs-dismiss="modal"
-                        >
-                          Oh no!
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-primary"
-                          data-bs-target={`#${modalId}`}
-                          data-bs-dismiss="modal"
-                          onClick={() => state.actions.deleteContact(props.id)}
-                        >
-                          Yes, baby!
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-      
+        className="modal fade"
+        // id="exampleModal"
+        id={modalId}
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Are you sure?</h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <p>If you delete this thing the entire universe will go down</p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Oh no!
+              </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                data-bs-target={`#${modalId}`}
+                data-bs-dismiss="modal"
+                onClick={() => state.actions.deleteContact(props.id)}
+              >
+                Yes, baby!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
