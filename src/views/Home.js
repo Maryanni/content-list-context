@@ -13,17 +13,19 @@ function Home() {
   useEffect(() => {
     state.actions.getContact();
   }, []);
-  
+
   return (
     <div className="container containerList">
       <div className="containerContact">
-        <Link
-          className="btn btn-primary btn-sm my-3"
-          aria-current="page"
-          to="/account"
-        >
-          Add new contact
-        </Link>
+        <div className="d-flex justify-content-end">
+          <Link
+            className="btn btn-primary btn-sm my-3"
+            aria-current="page"
+            to="/account"
+          >
+            Add new contact
+          </Link>
+        </div>
 
         {state.store.contacts.length > 0 ? (
           state.store.contacts.map((item, index) => {

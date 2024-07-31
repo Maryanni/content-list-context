@@ -1,3 +1,5 @@
+import { Alert } from "bootstrap";
+
 const getState = ({ getActions, getStore, setStore }) => {
   return {
     store: {
@@ -94,7 +96,15 @@ const getState = ({ getActions, getStore, setStore }) => {
               "Content-Type": "application/json",
             },
         })
-        .then((response) => response.json())
+        .then((response) => {
+            console.log(response.status);
+            if(response.status === 200){
+                response.json();
+                alert("Guardado con exito");
+            }else{
+                alert("Fallido");
+            }
+        })
         .catch((error) => console.log(error));
       }
     },
